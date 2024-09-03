@@ -1,0 +1,57 @@
+Este projeto consiste em um sistema de gerenciamento de vendas para uma loja local. O sistema utiliza um banco de dados para armazenar e gerenciar informações sobre produtos, clientes e vendas. O objetivo é criar um banco de dados robusto que permita a administração eficiente dos dados relacionados a transações de vendas, além de fornecer a capacidade de realizar consultas e operações básicas para manter e analisar essas informações.
+
+# Sistema de Gerenciamento de Vendas
+
+Este projeto é um sistema de gerenciamento de vendas para uma loja local. Ele foi desenvolvido para armazenar e gerenciar informações sobre clientes, produtos e transações de vendas. O banco de dados foi projetado para ser eficiente e fácil de usar, com operações básicas de CRUD (Create, Read, Update, Delete) implementadas.
+
+## Estrutura do Projeto
+
+1. **Banco de Dados**
+   - **Nome:** `sistema_vendas`
+
+2. **Tabelas**
+   - **Clientes:** Armazena informações sobre os clientes.
+   - **Produtos:** Armazena informações sobre os produtos disponíveis na loja.
+   - **Vendas:** Registra as vendas realizadas, associando clientes e produtos.
+
+3. **Comandos SQL**
+   - **Criação do Banco de Dados e Tabelas**
+   - **Inserção de Dados**
+   - **Consultas e Relatórios**
+   - **Atualizações e Deleções**
+
+## Instruções
+
+### 1. Criação do Banco de Dados e Tabelas
+
+Execute o seguinte comando SQL para criar o banco de dados e as tabelas:
+
+```sql
+-- Criação do Banco de Dados
+CREATE DATABASE sistema_vendas;
+USE sistema_vendas;
+
+-- Criação das Tabelas
+CREATE TABLE Clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    telefone VARCHAR(15) NOT NULL
+);
+
+CREATE TABLE Produtos (
+    id_produto INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL,
+    quantidade_estoque INT NOT NULL
+);
+
+CREATE TABLE Vendas (
+    id_venda INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT,
+    id_produto INT,
+    quantidade_vendida INT NOT NULL,
+    data_venda DATE NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+    FOREIGN KEY (id_produto) REFERENCES Produtos(id_produto)
+);

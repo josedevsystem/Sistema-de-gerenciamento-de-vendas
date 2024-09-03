@@ -1,0 +1,25 @@
+# Ignorar arquivos e diretórios temporários
+*.log
+*.tmp
+*.swp
+*.bak
+*.old
+
+# Ignorar diretórios específicos
+node_modules/
+venv/
+.env/
+
+# Ignorar arquivos de banco de dados locais
+*.sqlite
+*.db
+
+# Ignorar arquivos de configuração IDE
+.idea/
+*.iml
+*.project
+*.classpath
+
+# Ignorar arquivos de backup
+*.sql~
+*.bak~
